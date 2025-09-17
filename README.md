@@ -10,6 +10,12 @@
 - 이미지와 컨테이너 관리
 - Dockerfile 작성법
 
+### [03. Docker Compose](./03-docker-compose/README.md)
+- Docker Compose를 활용한 멀티 컨테이너 관리
+- docker-compose.yml 파일 작성
+- 서비스 간 네트워킹
+- 볼륨과 환경 변수 관리
+
 ## 🚀 시작하기
 
 각 강의별 디렉토리로 이동하여 해당 README.md 파일을 참조하세요.
