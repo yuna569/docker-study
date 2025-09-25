@@ -1,4 +1,3 @@
-
 ## 사전 설정
 
 ### 각 노드의 hosts 파일 수정
@@ -39,12 +38,14 @@ ping k3s.test.com
 
 ## K3s 설치
 
+아래는 K3s 설치를 위한 다양한 명령어 예시입니다. 필요에 따라 적절한 명령어를 선택하여 사용하세요.
+
 ```bash
 curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="server" sh -s - --flannel-backend none --token 12345
 curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="server --flannel-backend none" K3S_TOKEN=12345 sh -s -
 curl -sfL https://get.k3s.io | K3S_TOKEN=12345 sh -s - server --flannel-backend none
 # server is assumed below because there is no K3S_URL
-curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="--flannel-backend none --token 12345" sh -s - 
+curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="--flannel-backend none --token 12345" sh -s -
 curl -sfL https://get.k3s.io | sh -s - --flannel-backend none --token 12345
 ```
 
@@ -73,7 +74,7 @@ curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="server" K3S_URL="https://k3s.te
 
 ```bash
 # 워커 노드 설치 (마스터 노드에서 토큰 값 가져온 후)
-curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="agent --server https://k3s.test.com:6443 --token <토큰값>" sh -s - --flannel-backend=vxlan
+curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="agent --server https://k3s.test.com:6443 --token <토큰값>" sh -s -
 ```
 
 워커 노드 설치 시 필요한 토큰은 마스터 노드의 `/var/lib/rancher/k3s/server/node-token` 파일에서 확인할 수 있습니다.
