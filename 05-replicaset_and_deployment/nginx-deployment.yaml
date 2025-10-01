@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+  labels:
+    app: nginx
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginx
+  # strategy:
+  #   type: RollingUpdate
+  #   rollingUpdate:
+  #     maxSurge: 1        # 원하는 레플리카 수 이상으로 생성할 수 있는 최대 파드 수
+  #     maxUnavailable: 0  # 업데이트 중 사용할 수 없는 최대 파드 수
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      # nodeSelector:
+        # node-role.kubernetes.io/master: "true"
+        # kubernetes.io/hostname: "worker"
+      containers:
+      - name: nginx
+        image: nginx:1.28
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+          limits:
+            memory: "128Mi"
+            cpu: "500m"

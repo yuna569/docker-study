@@ -22,6 +22,12 @@
 - kubectl 명령어 사용법
 - 간단한 애플리케이션 배포 및 관리
 
+### [05. ReplicaSet과 Deployment](./05-replicaset_and_deployment/README.md)
+- ReplicaSet과 Deployment의 개념
+- 레플리카셋과 디플로이먼트 실습
+- 서비스(Service) 개념과 실습
+- 로드밸런싱과 서비스 디스커버리
+
 ## 🚀 시작하기
 
 각 강의별 디렉토리로 이동하여 해당 README.md 파일을 참조하세요.
