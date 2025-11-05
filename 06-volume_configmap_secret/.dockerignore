@@ -1,0 +1,11 @@
+*.yaml
+*.md
+*.txt
+!.dockerignore
+!.gitignore
+!.gitattributes
+*.toml  
+
+__pycache__/
+*.pyc
+*.pyo
