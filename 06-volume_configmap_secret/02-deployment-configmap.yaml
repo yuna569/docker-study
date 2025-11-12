@@ -16,27 +16,34 @@ spec:
       nodeSelector:
         kubernetes.io/hostname: "worker"
       containers:
-      - name: simple-file-server
-        image: ghcr.io/jung-geun/simple-file-server:1.0
-        imagePullPolicy: IfNotPresent
-        ports:
-        - containerPort: 3001
-        env:
-        - name: PORT
-          valueFrom:
-            configMapKeyRef:
-              name: simple-file-server-config
-              key: PORT
-        - name: LOG_PATH
-          valueFrom:
-            configMapKeyRef:
-              name: simple-file-server-config
-              key: LOG_PATH
-        - name: UPLOAD_DIR
-          valueFrom:
-            configMapKeyRef:
-              name: simple-file-server-config
-              key: UPLOAD_DIR
+        - name: simple-file-server
+          image: ghcr.io/jung-geun/simple-file-server:1.0
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 3001
+          env:
+            - name: PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: simple-file-server-config
+                  key: PORT
+            - name: LOG_PATH
+              valueFrom:
+                configMapKeyRef:
+                  name: simple-file-server-config
+                  key: LOG_PATH
+            - name: UPLOAD_DIR
+              valueFrom:
+                configMapKeyRef:
+                  name: simple-file-server-config
+                  key: UPLOAD_DIR
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+            limits:
+              cpu: "250m"
+              memory: "256Mi"
 ---
 apiVersion: v1
 kind: Service
@@ -48,6 +55,6 @@ spec:
   selector:
     app: simple-file-server
   ports:
-  - port: 3001
-    targetPort: 3001
-    nodePort: 30001
+    - port: 3001
+      targetPort: 3001
+      nodePort: 30001

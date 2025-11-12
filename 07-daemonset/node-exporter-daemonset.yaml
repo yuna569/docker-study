@@ -51,8 +51,8 @@ spec:
               cpu: "200m"
               memory: "256Mi"
           securityContext:
-            runAsUser: 65534        # nobody
-            runAsGroup: 65534       # nogroup
+            runAsUser: 65534 # nobody
+            runAsGroup: 65534 # nogroup
             allowPrivilegeEscalation: false
             readOnlyRootFilesystem: true
             seccompProfile:
