@@ -28,6 +28,21 @@
 - 서비스(Service) 개념과 실습
 - 로드밸런싱과 서비스 디스커버리
 
+### [06. Volume, ConfigMap, Secret](./06-volume_configmap_secret/README.md)
+- ConfigMap을 이용한 설정 관리
+- Volume을 이용한 데이터 영속화
+- Secret을 이용한 민감 정보 관리
+
+### [07. DaemonSet과 모니터링](./07-daemonset/README.md)
+- DaemonSet의 개념과 활용
+- Node Exporter를 이용한 노드 메트릭 수집
+- Prometheus와 Grafana를 이용한 모니터링 시스템 구축
+
+### [08. Ingress](./08-ingress/README.md)
+- Ingress의 개념과 활용
+- 간단한 파일 서버 애플리케이션 배포
+- Ingress 리소스를 이용한 외부 접근 제어
+
 ## 🚀 시작하기
 
 각 강의별 디렉토리로 이동하여 해당 README.md 파일을 참조하세요.
