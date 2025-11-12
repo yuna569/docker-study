@@ -1,0 +1,24 @@
+# filename: ingress-file-simple-server.yaml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: simple-file-server-ingress
+  namespace: file-server
+  annotations:
+    # NGINX Ingress Controller 기준: 기본 백엔드로 80 사용
+    # nginx.ingress.kubernetes.io/ssl-redirect: "false"   # HTTPS 강제 리다이렉트 비활성화 (HTTP만 사용)
+    traefik.ingress.kubernetes.io/router.tls: "false"
+spec:
+  # ingressClassName: nginx   # 설치한 Ingress Controller의 클래스명. NGINX를 쓴다면 일반적으로 "nginx"
+  ingressClassName: traefik
+  rules:
+    - host: file.test.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: simple-file-server-svc
+                port:
+                  number: 80

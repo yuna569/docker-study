@@ -1,0 +1,14 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: simple-file-server-svc
+  namespace: file-server
+spec:
+  selector:
+    app: simple-file-server
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 3001
+  type: ClusterIP 
