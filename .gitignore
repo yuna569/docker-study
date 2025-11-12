@@ -10,3 +10,4 @@ wheels/
 .venv
 
 k3s.yaml
+.env

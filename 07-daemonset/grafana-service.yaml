@@ -1,0 +1,36 @@
+# Grafana 서비스
+apiVersion: v1
+kind: Service
+metadata:
+  name: grafana
+  namespace: monitoring
+  labels:
+    app: grafana
+spec:
+  type: ClusterIP
+  ports:
+    - name: web
+      port: 3000
+      targetPort: 3000
+      protocol: TCP
+  selector:
+    app: grafana
+---
+# grafana lb 서비스 (외부접근용)
+apiVersion: v1
+kind: Service
+metadata:
+  name: grafana-lb
+  namespace: monitoring
+  labels:
+    app: grafana-lb
+spec:
+  type: LoadBalancer
+  ports:
+    - name: web
+      port: 3000
+      targetPort: 3000  
+      protocol: TCP
+  selector:
+    app: grafana
+---
