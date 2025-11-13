@@ -27,7 +27,7 @@ spec:
         kubernetes.io/hostname: "worker-1"
       containers:
         - name: simple-file-server
-          image: ghcr.io/jung-geun/simple-file-server:1.0
+          image: ghcr.io/jung-geun/simple-file-server:latest
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 3001
